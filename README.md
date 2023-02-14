@@ -1,7 +1,7 @@
 # Quarzo
 Quarzo: a Quarto engine, developed in Python with minimax, alpha-beta pruning and iterative deepening.
 
-##Instructions
+## Instructions
 Import the quarzo module with the line:
 ```python
 from quarzo import QuarzoMiniMax
