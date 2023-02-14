@@ -24,6 +24,7 @@ class Quarzo():
         self.__free_spots = []
         self.usable_pieces_reset = []
         self.free_spots_reset = []
+        self.binary_board_reset = None
 
         self.__create_piece_list()
         self.set_board_status()        
@@ -43,15 +44,18 @@ class Quarzo():
         self.__selected_piece_index = self.quarto.get_selected_piece()
         self.__compute_usable_pieces()
         self.__compute_free_spots()
+
+        self.binary_board_reset = copy.deepcopy(self.binary_board)
     
     def reset_board_status(self):
         '''
-        Used in the simulation. Resets the board status to the status before the 
-        simulation started.
+        Used in the montecarlo simulation. Resets the board status to the status 
+        before the simulation started.
         '''
         self.__usable_pieces = copy.deepcopy(self.__usable_pieces_reset)
         self.__free_spots = copy.deepcopy(self.__free_spots_reset)
         self.board = self.quarto.get_board_status()
+        self.binary_board = copy.deepcopy(self.binary_board_reset)
     
     def __compute_usable_pieces(self):
         self.__usable_pieces.clear()
