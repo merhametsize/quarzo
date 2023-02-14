@@ -12,10 +12,12 @@ class MonteCarlo():
         the opponent. Returns the piece that yields the highest win ratio.
         '''
         choice_reward_dict = {} #keys: choice, values: ratio of won games
-        for p in self.quarzo.usable_pieces:
+        pieces = self.quarzo.usable_pieces
+        random.shuffle(pieces)
+        for p in pieces:
             choice_reward_dict[p] = 0.0
     
-        for p in self.quarzo.usable_pieces: 
+        for p in pieces: 
             score = 0.0
 
             for _ in range(self.num_matches):
@@ -41,10 +43,12 @@ class MonteCarlo():
         Returns the coordinates of the spot that yields the highest win ratio.
         '''
         choice_reward_dict = {} #keys: choice, values: ratio of won games
-        for (x, y) in self.quarzo.free_spots:
+        moves = self.quarzo.free_spots
+        random.shuffle(moves)
+        for (x, y) in moves:
             choice_reward_dict[(x, y)] = 0.0
     
-        for (x, y) in self.quarzo.free_spots:
+        for (x, y) in moves:
             score = 0.0
 
             for _ in range(self.num_matches):
