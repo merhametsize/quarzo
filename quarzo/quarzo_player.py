@@ -54,7 +54,7 @@ class QuarzoMontecarlo(quarto.Player):
         self.montecarlo = MonteCarlo(self.quarzo)
 
         self.MONTECARLO_INITIAL_RATE = 20
-        self.MONTECARLO_FINAL_RATE = 50
+        self.MONTECARLO_FINAL_RATE = 40
 
     def choose_piece(self) -> int:
         self.quarzo.set_board_status()
